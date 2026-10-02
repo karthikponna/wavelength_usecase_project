@@ -21,5 +21,5 @@
       "@shared/*": ["./shared/*"]
     }
   },
-  "include": ["frontend/src", "shared", "backend", "vite.config.ts"]
+  "include": ["frontend/src", "shared", "backend", "scripts", "vite.config.ts"]
 }

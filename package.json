@@ -8,6 +8,7 @@
     "dev:web": "vite",
     "dev:api": "bun --watch backend/index.ts",
     "build": "tsc && vite build",
+    "build:vercel": "vite build && bun scripts/build-vercel.ts",
     "typecheck": "tsc",
     "test": "bun test",
     "preview": "vite preview"
