@@ -1,0 +1,179 @@
+[
+  {
+    "id": "signal-rank",
+    "name": "Signal Rank",
+    "page": "accounts",
+    "location": "Header bar, third button on the right (sparkle icon, 'New' dot)",
+    "whatItDoes": "Re-orders the accounts table by an AI priority score built from customer signals: health score, product usage trend, open support tickets and how soon the renewal is. Accounts that need attention first float to the top, and each one gets a short reason.",
+    "howToUse": [
+      "Click Signal Rank to turn ranking on. The table re-sorts and a 'Ranked by signals' badge appears.",
+      "Read the reason under each account name to see which signals moved it up.",
+      "Click Signal Rank again to go back to the default order."
+    ],
+    "options": ["On: sort by priority score", "Off: default alphabetical order"],
+    "example": "An account with usage down 31%, six open tickets and a renewal in 18 days jumps to the top of your book of business.",
+    "relatedFeatures": ["health-pulse", "stat-at-risk", "stat-renewals-30d"],
+    "liveDataKeys": ["signalRankActive", "signalRankPreview"],
+    "shippedOn": "2026-09-24",
+    "isNew": true
+  },
+  {
+    "id": "health-pulse",
+    "name": "Health Pulse",
+    "page": "accounts",
+    "location": "Accounts table, 'Health Pulse' column",
+    "whatItDoes": "A 0-100 score for every account, recalculated daily from product usage, support activity, email sentiment and engagement. 70 and above is Healthy (green), 50-69 is Watch (amber) and below 50 is At risk (red).",
+    "howToUse": [
+      "Scan the colored dot to spot at-risk accounts quickly.",
+      "Use the Health Pulse filter in the toolbar to show only one band."
+    ],
+    "options": ["Healthy (70+)", "Watch (50-69)", "At risk (below 50)"],
+    "relatedFeatures": ["health-filter", "signal-rank", "stat-at-risk"],
+    "liveDataKeys": ["atRiskAccounts", "accountsInView"],
+    "shippedOn": "2026-07-10"
+  },
+  {
+    "id": "health-filter",
+    "name": "Health Pulse filter",
+    "page": "accounts",
+    "location": "Toolbar, 'Health Pulse' chip",
+    "whatItDoes": "Limits the table to accounts in one Health Pulse band.",
+    "howToUse": ["Click the chip and pick a band, or pick 'All' to clear it."],
+    "options": ["All", "Healthy", "Watch", "At risk"],
+    "relatedFeatures": ["health-pulse"],
+    "liveDataKeys": ["filters"],
+    "shippedOn": "2026-07-10"
+  },
+  {
+    "id": "stat-renewals-30d",
+    "name": "Renewing in 30 days",
+    "page": "accounts",
+    "location": "Second stat card above the table",
+    "whatItDoes": "Total annual recurring revenue (ARR) of the accounts in the current view whose contract renews in the next 30 days, plus how many accounts that is.",
+    "howToUse": ["Change the toolbar filters and the number updates to match the current view."],
+    "relatedFeatures": ["signal-rank", "stat-at-risk"],
+    "liveDataKeys": ["arrRenewingIn30Days", "accountsRenewingIn30Days"],
+    "shippedOn": "2026-03-02"
+  },
+  {
+    "id": "stat-at-risk",
+    "name": "At-risk accounts",
+    "page": "accounts",
+    "location": "Third stat card above the table",
+    "whatItDoes": "Counts accounts in the current view with a Health Pulse below 50.",
+    "howToUse": ["Use it as a quick check, then turn on Signal Rank to see which at-risk account to work first."],
+    "relatedFeatures": ["health-pulse", "signal-rank"],
+    "liveDataKeys": ["atRiskCount", "atRiskAccounts"],
+    "shippedOn": "2026-03-02"
+  },
+  {
+    "id": "stat-accounts-in-view",
+    "name": "Accounts in view",
+    "page": "accounts",
+    "location": "First stat card above the table",
+    "whatItDoes": "How many accounts match the current search and filters, out of your whole book of business.",
+    "howToUse": ["Clear filters in the toolbar to see every account."],
+    "relatedFeatures": ["account-search", "segment-filter"],
+    "liveDataKeys": ["accountsInView", "totalAccounts"],
+    "shippedOn": "2026-03-02"
+  },
+  {
+    "id": "account-search",
+    "name": "Account search",
+    "page": "accounts",
+    "location": "Toolbar, left search box",
+    "whatItDoes": "Filters the table by account name or domain as you type.",
+    "howToUse": ["Type part of a name or domain, for example 'strip' or '.app'."],
+    "relatedFeatures": ["segment-filter"],
+    "liveDataKeys": ["filters"],
+    "shippedOn": "2025-11-14"
+  },
+  {
+    "id": "segment-filter",
+    "name": "Segment filter",
+    "page": "accounts",
+    "location": "Toolbar, 'Segment' chip",
+    "whatItDoes": "Shows only accounts tagged with one market segment. Segments come from your CRM and are shown as colored tags in the Segments column.",
+    "howToUse": [
+      "Click the chip to pick a segment.",
+      "Click the x on the chip to show all segments."
+    ],
+    "options": ["SaaS", "Fintech", "Security", "AI", "Dev Tools", "Productivity", "Design", "E-commerce"],
+    "relatedFeatures": ["account-search"],
+    "liveDataKeys": ["filters"],
+    "shippedOn": "2025-11-14"
+  },
+  {
+    "id": "owner-filter",
+    "name": "Owner filter",
+    "page": "accounts",
+    "location": "Toolbar, 'Owner' chip",
+    "whatItDoes": "Shows only accounts owned by one account manager, so each person can focus on their own book.",
+    "howToUse": ["Click the chip and pick a teammate, or 'Everyone' to clear it."],
+    "relatedFeatures": ["segment-filter"],
+    "liveDataKeys": ["filters"],
+    "shippedOn": "2026-01-20"
+  },
+  {
+    "id": "add-account",
+    "name": "Add",
+    "page": "accounts",
+    "location": "Header bar, first button on the right",
+    "whatItDoes": "Adds accounts to this workspace, either one at a time, from a CSV file, or by syncing from Salesforce.",
+    "howToUse": ["Click Add and choose how you want to bring accounts in."],
+    "options": ["New account", "Import CSV", "Sync from Salesforce"],
+    "relatedFeatures": ["view-options"],
+    "shippedOn": "2025-08-01"
+  },
+  {
+    "id": "view-options",
+    "name": "View",
+    "page": "accounts",
+    "location": "Header bar, second button on the right",
+    "whatItDoes": "Changes how the table looks. Right now it switches row density between Comfortable and Compact.",
+    "howToUse": ["Click View and pick a density."],
+    "options": ["Comfortable", "Compact"],
+    "relatedFeatures": ["add-account"],
+    "liveDataKeys": ["density"],
+    "shippedOn": "2025-08-01"
+  },
+  {
+    "id": "nav-accounts",
+    "name": "Accounts",
+    "page": "global",
+    "location": "Left icon rail, first icon",
+    "whatItDoes": "Your book of business: every account with its health, revenue, renewal date and owner. This is the page you are on.",
+    "howToUse": ["Click it from anywhere to come back to the accounts table."],
+    "shippedOn": "2025-08-01"
+  },
+  {
+    "id": "nav-workflows",
+    "name": "Workflows",
+    "page": "global",
+    "location": "Left icon rail, second icon",
+    "whatItDoes": "Automations that run when a customer signal fires, for example creating a task when an account's Health Pulse drops below 50.",
+    "howToUse": ["Open Workflows, pick a trigger signal, then add actions like Slack alerts, tasks or emails."],
+    "relatedFeatures": ["signal-rank", "nav-outreach"],
+    "shippedOn": "2026-02-11"
+  },
+  {
+    "id": "nav-outreach",
+    "name": "Outreach",
+    "page": "global",
+    "location": "Left icon rail, third icon",
+    "whatItDoes": "Sends personalized emails to many accounts at once. Wavelength drafts each message from that account's signals, and you review before sending.",
+    "howToUse": ["Pick an audience of accounts, choose a template, review the drafts, then send."],
+    "relatedFeatures": ["nav-workflows"],
+    "shippedOn": "2026-04-30"
+  },
+  {
+    "id": "nav-insights",
+    "name": "Insights",
+    "page": "global",
+    "location": "Left icon rail, fourth icon",
+    "whatItDoes": "AI summaries of each account from calls, emails, tickets and usage, with trends across your whole book of business.",
+    "howToUse": ["Open Insights and pick an account, or ask a question about your book of business."],
+    "relatedFeatures": ["health-pulse"],
+    "shippedOn": "2026-05-18"
+  }
+]
